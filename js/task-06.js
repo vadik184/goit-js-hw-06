@@ -1,25 +1,18 @@
-const inputValid = document.querySelector("#validation-input");
-//console.log(inputValid.getAttribute("data-length"));
-//const inputValid =
-//const inputValid = document.getElementById("validation-input");
-//inputred.id = "validation-input.invalid";
-console.log(inputValid);
-//console.log(inputred);
+const input = document.querySelector("#validation-input");
 
-inputValid.addEventListener("input", () => {
-  const inputText = event.currentTarget.value;
-  console.log(inputText.length);
-  if (inputText.length === inputValid.getAttribute("data-length")) {
-    inputValid.addEventListener("blur", () => {
-      inputValid.classList.add("valid");
-      const validInput = document.querySelector("valid");
-      validInput.style.borderColor = "#4caf50";
-    });
-    //     inputValid.classList("valid");
-    //     document.querySelector("valid").addEventListener("focus", () => {
-    //       document.querySelector("valid").style.border = "2px solid #bdbdbd";
-    //     });
-    //   } else {
-    //     inputValid.id = "validation-input.invalid";
+input.addEventListener("blur", () => {
+  const inputValue = input.value;
+  console.log(inputValue);
+  const inputLength = input.dataset.length;
+  console.log(inputLength);
+  if (inputValue.length === Number(inputLength)) {
+    input.classList.remove("invalid");
+    input.classList.add("valid");
+  } else if (inputValue.length === 0) {
+    input.classList.remove("invalid");
+    input.classList.remove("valid");
+  } else {
+    input.classList.remove("valid");
+    input.classList.add("invalid");
   }
 });
