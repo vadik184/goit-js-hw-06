@@ -26,7 +26,7 @@ const createBoxes = () => {
 };
 
 const destroyBoxes = () => {
-  [...boxes.childNodes].forEach((node) => node.remove());
+  boxes.innerHTML = "";
 };
 
 createBtn.addEventListener("click", createBoxes);
